@@ -1,0 +1,15 @@
+title: Video
+
+accept:
+  type: video
+  mime: video/mp4
+
+columns:
+  - width: 2/3
+    sections:
+      content:
+        type: fields
+        fields:
+          alt:
+            label: Texte alternatif
+            type: text
