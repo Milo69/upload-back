@@ -53,4 +53,4 @@ vendor/
 content/
 media/
 site/plugins/kql
-
+site/config/env.php
