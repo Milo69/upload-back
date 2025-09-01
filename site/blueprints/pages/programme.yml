@@ -1,0 +1,19 @@
+title: Programme
+
+sections:
+  items:
+    type: pages
+    headline: Liste des événements
+    templates: evenement
+    create:
+      - evenement
+    status: all
+    layout: table
+    image: false   # ← enlève la colonne image/icone
+    columns:
+      date:
+        label: Date
+        value: "{{ page.date.toDate('d.m.Y') }}"
+    preview: false
+
+

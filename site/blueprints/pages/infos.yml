@@ -1,0 +1,85 @@
+title: Infos pratiques
+
+status:
+  draft: Brouillon
+  listed: Publié
+
+tabs:
+  contenu:
+    label: 🟦 Contenu
+    columns:
+      - width: 2/3
+        fields:
+          horaires:
+            label: Horaires d’ouverture
+            type: writer
+            nodes: [ paragraph ]
+
+          lieu_biennale:
+            label: Lieu de la biennale
+            type: structure
+            sortable: true
+            preview: "{{ nom }} — {{ adresse }}"
+            fields:
+              nom:
+                label: Nom du lieu
+                type: text
+              adresse:
+                label: Adresse
+                type: text
+              maps:
+                label: Lien Google Maps
+                type: url
+            columns:
+              nom:
+                width: 1/4
+              adresse:
+                width: 1/2
+              maps:
+                width: 1/4
+            sortBy: nom asc
+            empty: "Ajoute un lieu"
+
+          autres_lieux:
+            label: Autres lieux
+            type: structure
+            sortable: true
+            preview: "{{ nom }} — {{ adresse }}"
+            fields:
+              nom:
+                label: Nom du lieu
+                type: text
+              adresse:
+                label: Adresse
+                type: text
+              maps:
+                label: Lien Google Maps
+                type: url
+            columns:
+              nom:
+                width: 1/4
+              adresse:
+                width: 1/2
+              maps:
+                width: 1/4
+            sortBy: nom asc
+            empty: "Ajoute un lieu"
+
+          accessibilite:
+            label: Accessibilité
+            type: writer
+            nodes: [ paragraph ]
+
+      - width: 1/3
+        fields:
+          contact_email:
+            label: Email
+            type: text
+
+          instagram_label:
+            label: Instagram — Nom du compte
+            type: text
+
+          instagram_url:
+            label: Instagram — URL
+            type: url

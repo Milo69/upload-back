@@ -1,0 +1,75 @@
+title: À propos
+
+status:
+  draft: Brouillon
+  listed: Publié
+
+tabs:
+  contenu:
+    label: 🟦 Contenu
+    columns:
+      - width: 2/3
+        fields:
+          biennale_title:
+            label: Titre — Biennale
+            type: text
+            required: true
+
+          biennale_description:
+            label: Description — Biennale
+            type: writer
+            nodes: [ paragraph, heading, bulletList, orderedList, blockquote ]
+            marks: [ bold, italic, link ]
+
+          commissariat_block1:
+            label: Crédits
+            type: writer
+            nodes: [ paragraph ]
+            marks: [ bold, italic, link ]
+
+          commissariat_block2:
+            label: Commissariat
+            type: writer
+            nodes: [ paragraph ]
+            marks: [ bold, italic, link ]
+
+      - width: 1/3
+        fields:
+          biennale_image:
+            label: Image — Biennale (affichée à gauche)
+            type: files
+            multiple: false
+            layout: cards
+            image:
+              cover: true
+            uploads:
+              template: image
+
+  partenaires:
+    label: 🤝 Partenaires
+    columns:
+      - width: 2/3
+        fields:
+          partners_title:
+            label: Titre — Partenaires
+            type: text
+            required: true
+
+          partners_text:
+            label: Texte d’introduction
+            type: writer
+            nodes: [ paragraph, bulletList ]
+            marks: [ bold, italic, link ]
+
+      - width: 1/3
+        fields:
+          partners_logos:
+            label: Logos des partenaires
+            type: files
+            multiple: true
+            layout: cards
+            size: small
+            image:
+              cover: contain
+            uploads:
+              template: logo

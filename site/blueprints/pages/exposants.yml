@@ -1,0 +1,11 @@
+title: Exposants
+
+sections:
+  items:
+    type: pages
+    headline: Liste des exposants
+    templates: participant
+    create:
+      - participant
+    status: all
+    layout: table

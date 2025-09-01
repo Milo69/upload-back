@@ -1,0 +1,69 @@
+title: Participant
+
+status:
+  draft: Brouillon
+  listed: Publié
+
+columns:
+  main:
+    width: 2/3
+    fields:
+      content_headline:
+        label: 🟦 CONTENU
+        type: headline
+        numbered: false
+
+      content_subtitle:
+        label: Sous-titre
+        type: text
+        required: true
+
+      content_body:
+        label: Contenu
+        type: writer
+        nodes:
+          - paragraph
+        marks:
+          - link
+
+      content_descriptif:
+        label: Descriptif technique
+        type: writer
+        nodes:
+          - paragraph
+        marks:
+          - link
+
+  sidebar:
+    width: 1/3
+    fields:
+      info_headline:
+        label: 🟣 Infos
+        type: headline
+        numbered: false
+
+      info_bio_studio:
+        label: Bio participant·e·x·s
+        type: writer
+        nodes:
+          - paragraph
+        marks:
+          - link
+
+      info_link_website:
+        label: Site web
+        type: url
+
+      info_link_social:
+        label: Lien Instagram
+        type: url
+
+      info_image:
+        label: Image(s)
+        type: files
+        multiple: true
+        layout: cards
+        image:
+          cover: true
+        uploads:
+          template: image

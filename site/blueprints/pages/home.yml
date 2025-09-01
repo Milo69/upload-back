@@ -1,0 +1,13 @@
+title: Home
+
+fields:
+  intro:
+    label: Introduction
+    type: writer
+    nodes:
+      - paragraph
+      - heading
+    marks:
+      - bold
+      - italic
+      - link

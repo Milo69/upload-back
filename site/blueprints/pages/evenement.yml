@@ -1,0 +1,65 @@
+title: Événement
+
+status:
+  draft: Brouillon
+  listed: Publié
+
+columns:
+  main:
+    width: 2/3
+    fields:
+      content_headline:
+        label: 🟦 Contenu
+        type: headline
+        numbered: false
+
+      title:
+        label: Titre de l’événement
+        type: text
+        required: true
+
+      description:
+        label: Texte descriptif
+        type: writer
+        nodes:
+          - paragraph
+        marks:
+          - link
+
+      conditions:
+        label: Conditions de réservation
+        type: writer
+        nodes:
+          - paragraph
+          - bulletList
+          - orderedList
+        marks:
+          - bold
+          - italic
+          - link
+
+  sidebar:
+    width: 1/3
+    fields:
+      info_headline:
+        label: 🟣 Infos pratiques
+        type: headline
+        numbered: false
+
+      date:
+        label: Date
+        type: date
+        time: false
+
+      time:
+        label: Horaire
+        type: text
+        help: "Indiquez une heure fixe (ex. 14h00) ou une plage horaire (ex. 14h–16h)."
+
+      address:
+        label: Adresse
+        type: text
+
+      googlemaps:
+        label: Lien Google Maps
+        type: url
