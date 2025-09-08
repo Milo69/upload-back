@@ -63,3 +63,12 @@ columns:
       googlemaps:
         label: Lien Google Maps
         type: url
+
+      image:
+        label: Image
+        type: files
+        multiple: false
+        layout: cards
+        required: true
+        uploads:
+          template: image
