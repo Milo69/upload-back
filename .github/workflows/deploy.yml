@@ -21,6 +21,10 @@ jobs:
     - name: Install Composer dependencies
       run: composer install --no-dev --optimize-autoloader
       
+    - name: Clean build directory
+      run: |
+        rm -rf .git .DS_Store README.md node_modules
+        
     - name: Deploy to server via SFTP
       uses: wlixcc/SFTP-Deploy-Action@v1.2.4
       with:
@@ -31,7 +35,3 @@ jobs:
         remote_path: '/srv/customer/sites/upload-biennale.ch/api/'
         sftp_only: true
         delete_remote_files: true
-        exclude: |
-          .git/
-          .DS_Store
-          README.md
