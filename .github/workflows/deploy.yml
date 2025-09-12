@@ -1,4 +1,4 @@
-name: Deploy Kirby to Infomaniak
+name: Deploy Kirby to Server
 
 on:
   push:
@@ -12,26 +12,27 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
+    - name: Deploy Kirby via SSH
+      uses: appleboy/ssh-action@v1.0.3
       with:
-        php-version: '8.2'
-        extensions: mbstring, xml, curl, zip, intl
-        
-    - name: Install Composer dependencies
-      run: composer install --no-dev --optimize-autoloader
-      
-    - name: Deploy to server via FTP
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        host: 57-102620.ssh.hosting-ik.com
+        username: ${{ secrets.SSH_USERNAME }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        script: |
+          cd ~/upload-back || mkdir -p ~/upload-back
+          git pull origin main || git clone https://github.com/Milo69/upload-back.git ~/upload-back
+          cd ~/upload-back
+          composer install --no-dev --optimize-autoloader
+          
+    - name: Upload files via SCP
+      uses: appleboy/scp-action@v0.1.7
       with:
-        server: da75r.ftp.infomaniak.com
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./
-        server-dir: /sites/upload-biennale.ch/api/
+        host: 57-102620.ssh.hosting-ik.com
+        username: ${{ secrets.SSH_USERNAME }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        source: "./*"
+        target: "~/upload-back/"
+        rm: true
         exclude: |
-          **/.git*
-          **/.git*/**
-          **/node_modules/**
-          **/.DS_Store
-          README.md
+          .git
+          .DS_Store
