@@ -26,12 +26,11 @@ jobs:
         rm -rf .git .DS_Store README.md node_modules
         
     - name: Deploy to server via SFTP
-      uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: 57-102620.ssh.hosting-ik.com
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
-        local_path: './*'
-        remote_path: '/srv/customer/sites/upload-biennale.ch/api/'
-        sftp_only: true
-        delete_remote_files: true
+        protocol: sftp
+        local-dir: ./
+        server-dir: /srv/customer/sites/upload-biennale.ch/api/
