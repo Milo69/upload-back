@@ -34,3 +34,13 @@ jobs:
         protocol: ftps
         local-dir: ./
         server-dir: /srv/customer/sites/upload-biennale.ch/api/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/.DS_Store
+          **/README.md
+          **/content/**
+          **/media/**
+          **/site/accounts/**
+          **/storage/**
