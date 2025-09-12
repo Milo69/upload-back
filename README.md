@@ -36,3 +36,4 @@ If you are familiar with Git, you can clone Kirby's Plainkit repository from Git
 [getkirby.com](https://getkirby.com) · [License agreement](https://getkirby.com/license)
 # Trigger deployment
 # Test SSH deployment Ven 12 sep 2025 18:34:01 CEST
+# Test FTP deployment Ven 12 sep 2025 19:27:58 CEST
