@@ -28,7 +28,7 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
         local_path: './*'
-        remote_path: '/srv/customer/site/upload-biennale.ch/api/'
+        remote_path: '/srv/customer/sites/upload-biennale.ch/api/'
         sftp_only: true
         delete_remote_files: true
         exclude: |
