@@ -4,71 +4,182 @@ status:
   draft: Brouillon
   listed: Publié
 
-columns:
-  main:
-    width: 2/3
+tabs:
+  contenu:
+    label: Contenu
+    columns:
+      main:
+        width: 2/3
+        fields:
+          content_headline:
+            label: 🟦 Contenu
+            type: headline
+            numbered: false
+
+          title:
+            label: Titre de l’événement
+            type: text
+            required: true
+
+          description:
+            label: Texte descriptif
+            type: writer
+            nodes:
+              - paragraph
+            marks:
+              - link
+
+
+      sidebar:
+        width: 1/3
+        fields:
+          info_headline:
+            label: 🟣 Infos pratiques
+            type: headline
+            numbered: false
+
+          event_type:
+            label: Type d’événement
+            type: select
+            required: true
+            options:
+              exposition: Exposition
+              conference: Conférence
+              atelier: Atelier
+              visite: Visite guidée
+            default: atelier
+
+          date:
+            label: Date
+            type: date
+            time: false
+
+          start_time:
+            label: Heure de début
+            type: time
+            required: true
+            help: "Heure de début de l'événement (utilisée pour le tri)"
+            width: 1/2
+
+          end_time:
+            label: Heure de fin (optionnel)
+            type: time
+            help: "Heure de fin de l'événement (laisser vide si pas applicable)"
+            width: 1/2
+
+          address:
+            label: Adresse
+            type: text
+
+          googlemaps:
+            label: Lien Google Maps
+            type: url
+
+          image:
+            label: Image
+            type: files
+            multiple: false
+            layout: cards
+            required: true
+            uploads:
+              template: image
+
+  specific:
+    label: Spécifiques au type
     fields:
-      content_headline:
-        label: 🟦 Contenu
-        type: headline
-        numbered: false
+          # Champs affichés si ATELIER
+          atelier_headline:
+            label: 🎨 Atelier — paramètres
+            type: headline
+            when:
+              event_type: atelier
+          atelier_min_age:
+            label: Âge minimum
+            type: number
+            min: 0
+            step: 1
+            width: 1/2
+            when:
+              event_type: atelier
+          atelier_instructor:
+            label: Nom de l'intervenant
+            type: text
+            when:
+              event_type: atelier
+          atelier_capacity:
+            label: Nombre de places max
+            type: number
+            min: 1
+            when:
+              event_type: atelier
 
-      title:
-        label: Titre de l’événement
-        type: text
-        required: true
+          # Champs affichés si CONFÉRENCE
+          conf_headline:
+            label: 🎤 Conférence — paramètres
+            type: headline
+            when:
+              event_type: conference
+          speakers:
+            label: Intervenant·e·s
+            type: textarea
+            when:
+              event_type: conference
 
-      description:
-        label: Texte descriptif
-        type: writer
-        nodes:
-          - paragraph
-        marks:
-          - link
+          # Champs affichés si VISITE GUIDÉE
+          visite_headline:
+            label: 🗺️ Visite guidée — paramètres
+            type: headline
+            when:
+              event_type: visite
+          meeting_point:
+            label: Point de rendez-vous
+            type: text
+            when:
+              event_type: visite
+          guide_name:
+            label: Nom du/de la guide
+            type: text
+            when:
+              event_type: visite
 
-      conditions:
-        label: Conditions de réservation
-        type: writer
-        nodes:
-          - paragraph
-          - bulletList
-          - orderedList
-        marks:
-          - bold
-          - italic
-          - link
+          # Champs affichés si EXPOSITION (si tu en as besoin)
+          expo_headline:
+            label: 🖼️ Exposition — paramètres
+            type: headline
+            when:
+              event_type: exposition
 
-  sidebar:
-    width: 1/3
-    fields:
-      info_headline:
-        label: 🟣 Infos pratiques
-        type: headline
-        numbered: false
+  reservation:
+    label: Réservation
+    columns:
+      main:
+        width: 2/3
+        fields:
+          res_headline:
+            label: 🟢 Réservation
+            type: headline
+            numbered: false
 
-      date:
-        label: Date
-        type: date
-        time: false
+          reservation_enabled:
+            label: Activer la réservation
+            type: toggle
+            text:
+              - Non
+              - Oui
+            default: false
 
-      time:
-        label: Horaire
-        type: text
-        help: "Indiquez une heure fixe (ex. 14h00) ou une plage horaire (ex. 14h–16h)."
 
-      address:
-        label: Adresse
-        type: text
+          # --- EXTERNE (Infomaniak)
+          reservation_url:
+            label: URL de réservation (Infomaniak)
+            type: url
+            placeholder: "https://…"
+            when:
+              reservation_enabled: true
 
-      googlemaps:
-        label: Lien Google Maps
-        type: url
 
-      image:
-        label: Image
-        type: files
-        multiple: false
-        layout: cards
-        required: true
-        uploads:
-          template: image
+
+
+
+
+

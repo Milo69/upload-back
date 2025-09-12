@@ -16,10 +16,12 @@ columns:
           - home
           - apropos
           - infos
+          - footer
         create:
           - home
           - apropos
           - infos
+          - footer
 
   right:
     width: 1/3

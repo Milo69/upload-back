@@ -42,12 +42,25 @@ columns:
         type: headline
         numbered: false
 
+      info_category:
+        label: Catégorie
+        type: select
+        options:
+          signaletique: Signalétique & Scénographie
+          transversaux: Projets transversaux
+          branding: Branding
+          police: Dessin de police caractères
+          edition: Édition
+          identite: Identité culturelle
+
       info_bio_studio:
         label: Bio participant·e·x·s
         type: writer
         nodes:
           - paragraph
         marks:
+          - bold
+          - italic
           - link
 
       info_link_website:

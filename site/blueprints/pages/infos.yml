@@ -83,3 +83,14 @@ tabs:
           instagram_url:
             label: Instagram — URL
             type: url
+
+          partners_logos:
+            label: Logos des partenaires
+            type: files
+            multiple: true
+            layout: cards
+            size: small
+            image:
+              cover: contain
+            uploads:
+              template: logo

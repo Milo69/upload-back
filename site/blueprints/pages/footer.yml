@@ -1,0 +1,51 @@
+title: Footer
+
+fields:
+  social_headline:
+    label: 🔗 Réseaux sociaux
+    type: headline
+    numbered: false
+
+  social_networks:
+    label: Réseaux sociaux
+    type: structure
+    fields:
+      icon:
+        label: Pictogramme (SVG)
+        type: files
+        multiple: false
+        layout: cards
+        accept: "image/svg+xml"
+      url:
+        label: URL
+        type: url
+        required: true
+
+  footer_contact:
+    label: Contact footer
+    type: textarea
+
+  footer_address:
+    label: Adresse footer
+    type: textarea
+
+  partners_headline:
+    label: 🤝 Partenaires
+    type: headline
+    numbered: false
+
+  footer_partner_logos:
+    label: Logos des partenaires footer
+    type: files
+    multiple: true
+    layout: cards
+    uploads:
+      template: logo
+
+  footer_credit_design:
+    label: Crédit design footer
+    type: textarea
+
+  footer_credit_dev:
+    label: Crédit dev footer
+    type: textarea

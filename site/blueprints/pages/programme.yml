@@ -1,19 +1,34 @@
 title: Programme
 
-sections:
-  items:
-    type: pages
-    headline: Liste des événements
-    templates: evenement
-    create:
-      - evenement
-    status: all
-    layout: table
-    image: false   # ← enlève la colonne image/icone
-    columns:
-      date:
-        label: Date
-        value: "{{ page.date.toDate('d.m.Y') }}"
-    preview: false
+tabs:
+  evenements:
+    label: 📅 Événements
+    sections:
+      items:
+        type: pages
+        headline: Liste des événements
+        templates: evenement
+        create:
+          - evenement
+        status: all
+        layout: table
+        image: false   # ← enlève la colonne image/icone
+        columns:
+          date:
+            label: Date
+            value: "{{ page.date.toDate('d.m.Y') }}"
+        preview: false
+
+  documents:
+    label: 📄 Documents
+    fields:
+      programme_pdf:
+        label: Programme PDF
+        type: files
+        multiple: true
+        layout: list
+        uploads:
+          template: pdf
+        help: Fichiers PDF téléchargeables du programme
 
 

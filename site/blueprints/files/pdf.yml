@@ -1,0 +1,16 @@
+title: PDF
+
+accept:
+  type: document
+  mime: application/pdf
+
+columns:
+  - width: 2/3
+    sections:
+      content:
+        type: fields
+        fields:
+          description:
+            label: Description
+            type: text
+            help: Description du document PDF
